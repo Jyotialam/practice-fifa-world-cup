@@ -4,13 +4,13 @@
   padding: 0;
   margin: 0 auto;
   font-family: "Poppins", sans-serif;
-  max-width: 1400px;
+  max-width: 1280px;
 }
 img {
   max-width: 100%;
 }
 .container {
-  max-width: 1400px;
+  max-width: 1280px;
   margin: auto;
 }
 
@@ -24,6 +24,36 @@ img {
   border-radius: 10px;
 }
 /* custom css */
+@keyframes banner-animation {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(-10px);
+
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes banner-player-animation {
+  0% {
+    opacity: 0.5;
+    transform: translateX(-20px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(-10px);
+
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
 .banner {
   display: flex;
   align-items: center;
@@ -31,6 +61,8 @@ img {
   color: white;
   border-radius: 15px;
   margin: 50px auto;
+
+  animation: banner-animation 0.7s ease-out forwards;
 }
 .banner-left {
   padding-left: 45px;
@@ -51,6 +83,7 @@ img {
 }
 .banner-right img {
   display: block;
+  animation: banner-player-animation 1s ease-in infinite ;
 }
 /* upcoming-matches section */
 .upcoming-matches {
@@ -88,9 +121,6 @@ img {
 .upcoming-matches-right .card {
   border: 1px solid rgb(232, 232, 232);
   border-radius: 10px;
-  max-width: 312px;
-  /* max-width: 312px;
-  max-height: 362px; */
 }
 .upcoming-matches .card .card-body {
   padding: 20px;
@@ -122,8 +152,12 @@ img {
 
 /* large devices like laptop */
 @media (max-width: 992px) {
+  /* container */
+  .container {
+    margin: 0 20px;
+  }
   /* banner */
-  .banner h2{
+  .banner h2 {
     font-size: 50px;
     line-height: 50px;
   }
@@ -136,20 +170,25 @@ img {
     width: 100%;
     background-color: transparent;
   }
-  .upcoming-matches-left > *{
+  .upcoming-matches-left > * {
     flex: 1;
   }
-  .upcoming-matches-left .btn{
+  .upcoming-matches-left .btn {
     border: 1px solid rgb(232, 232, 232);
   }
-  .upcoming-matches-right{
-    grid-template-columns: repeat(2,1fr);
+  .upcoming-matches-right {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* mobile devices */
-@media (max-width: 768px){
-  .banner{
+@media (max-width: 768px) {
+  /* container */
+  .container {
+    margin: 0 10px;
+  }
+  /* banner */
+  .banner {
     flex-direction: column;
     text-align: center;
   }
@@ -158,9 +197,11 @@ img {
     padding-left: 0;
     padding-top: 30px;
   }
-  .banner .banner-left p{
+  .banner .banner-left p {
     /* max-width: 100%; */
     margin: 15px auto;
   }
-
+  .upcoming-matches-right {
+    grid-template-columns: 1fr;
+  }
 }
