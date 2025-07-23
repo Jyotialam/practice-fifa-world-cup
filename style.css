@@ -30,7 +30,8 @@ img {
 nav {
   background-color: black;
   margin: 20px auto;
-  padding: 15px 0;
+  margin-bottom: 50px;
+  padding: 30px 0;
   font-weight: 600;
 }
 nav ul {
